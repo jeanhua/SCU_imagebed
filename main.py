@@ -29,9 +29,9 @@ if __name__ == "__main__":
             if back == None:
                 print("上传失败！")
                 continue
-            print("上传成功！URL:"+back)
+            print("上传成功！URL:"+back.replace(' ','%20'))
             with open("./image.txt", 'a', encoding="utf-8") as f:
-                f.write(back + '\n')
+                f.write(back.replace(' ','%20') + '\n')
         if op == '3':
             break
         else:

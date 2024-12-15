@@ -11,18 +11,23 @@ def login(id, password):
     drivers = webdriver.Edge()
     drivers.get(loginUrl)
     time.sleep(1)
-    user_input = drivers.find_element(by=By.XPATH, value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[1]/div/div/div[2]/div/input')
-    pw_input = drivers.find_element(by=By.XPATH, value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[2]/div/div/div[2]/div/input')
+    user_input = drivers.find_element(by=By.XPATH,
+                                      value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[1]/div/div/div[2]/div/input')
+    pw_input = drivers.find_element(by=By.XPATH,
+                                    value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[2]/div/div/div[2]/div/input')
 
     # 自动识别验证码
-    vercode_input = drivers.find_element(by=By.XPATH,value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[3]/div/div/div/div/input')
-    vercode = drivers.find_element(by=By.XPATH,value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[3]/div/div/img')
+    vercode_input = drivers.find_element(by=By.XPATH,
+                                         value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[3]/div/div/div/div/input')
+    vercode = drivers.find_element(by=By.XPATH,
+                                   value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[3]/div/div/img')
     vercode_base64 = vercode.get_attribute("src").split(',')[1]
     ocr = ddddocr.DdddOcr(show_ad=False)
     res = ocr.classification(base64.b64decode(vercode_base64))
     vercode_input.send_keys(res)
 
-    login_btn = drivers.find_element(by=By.XPATH, value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[4]/div/button')
+    login_btn = drivers.find_element(by=By.XPATH,
+                                     value='//*[@id="app"]/div[1]/div/div[2]/div/div[1]/div[2]/div[2]/div/form/div[4]/div/button')
     user_input.send_keys(id)
     pw_input.send_keys(password)
     time.sleep(0.8)
