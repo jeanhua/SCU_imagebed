@@ -3,7 +3,6 @@ import requests
 import postImage
 import SCU_login
 import login
-from flask import Flask
 
 
 if __name__ == "__main__":
