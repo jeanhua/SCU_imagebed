@@ -1,6 +1,5 @@
 import json
 import time
-import os
 import requests
 
 
@@ -13,7 +12,7 @@ class PostImage:
         url = "https://ecourse.scu.edu.cn/learn/v1/upload/fileupload"
         payload = {}
         files = [
-            ('file', (f"{os.path.basename(self.filepath).replace(str(self.filepath).split('.')[-1],'')}{time.time()}.{str(self.filepath).split('.')[-1]}", open(f'{self.filepath}', 'rb'), 'application/octet-stream'))
+            ('file', (f"{int(time.time())}.{str(self.filepath).split('.')[-1]}", open(f'{self.filepath}', 'rb'), 'application/octet-stream'))
         ]
         headers = {
             'Accept': '*/*',

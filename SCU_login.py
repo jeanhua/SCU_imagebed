@@ -66,10 +66,11 @@ def get_access_token(client_id: str, username: str, password: str):
                                 data=payload)
     result = json.loads(response.text)
     if not result['success']:
+        print(response.text)
         return None,None
     access_token = result['data']['access_token']
     refresh_token = result['data']['refresh_token']
-    return access_token,None
+    return access_token,refresh_token
 
 
 def get_2FA_result(access_token: str, applicaation_key):

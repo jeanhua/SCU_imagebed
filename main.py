@@ -3,6 +3,8 @@ import requests
 import postImage
 import SCU_login
 import login
+from flask import Flask
+
 
 if __name__ == "__main__":
     print('四川大学统一身份登陆')
