@@ -19,3 +19,5 @@
 ## 未完待续...
 
 这是一个简陋版，可能后面做一个前端页面优化显示效果
+
+客户端分支：[SCU_imagebed at app](https://github.com/jeanhua/SCU_imagebed/tree/app)

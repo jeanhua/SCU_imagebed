@@ -96,3 +96,4 @@ def get_2FA_result(access_token: str, applicaation_key):
     result = json.loads(response.text)
     if result['success']:
         return result['data']['twoFactor']
+    
